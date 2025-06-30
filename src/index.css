@@ -8,7 +8,7 @@ body {
   font-family: 'Montserrat', sans-serif;
   line-height: 1.6;
   color: #333;
-  background-color: #fafafa;
+  background-color: #fefefe;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -38,14 +38,14 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .btn-primary {
-  background: linear-gradient(135deg, #ff6b6b, #ee5a24);
+  background: linear-gradient(135deg, #e91e63, #c2185b);
   color: white;
 }
 
 .btn-primary:hover {
-  background: linear-gradient(135deg, #ee5a24, #ff6b6b);
+  background: linear-gradient(135deg, #c2185b, #e91e63);
   transform: translateY(-2px);
-  box-shadow: 0 8px 25px rgba(238, 90, 36, 0.3);
+  box-shadow: 0 8px 25px rgba(233, 30, 99, 0.3);
 }
 
 .btn-secondary {
@@ -80,7 +80,7 @@ h1, h2, h3, h4, h5, h6 {
   transform: translateX(-50%);
   width: 60px;
   height: 3px;
-  background: linear-gradient(135deg, #ff6b6b, #ee5a24);
+  background: linear-gradient(135deg, #e91e63, #c2185b);
 }
 
 @media (max-width: 768px) {

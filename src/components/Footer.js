@@ -24,7 +24,6 @@ const Footer = () => {
             <h4>Kontakt</h4>
             <div className="contact-info">
               <div className="contact-item">
-                <span className="contact-icon">📱</span>
                 <div>
                   <p className="contact-label">WhatsApp</p>
                   <a 
@@ -35,20 +34,6 @@ const Footer = () => {
                   >
                     +49 179 3799608
                   </a>
-                </div>
-              </div>
-              <div className="contact-item">
-                <span className="contact-icon">🌍</span>
-                <div>
-                  <p className="contact-label">Verfügbarkeit</p>
-                  <p className="contact-text">Deutschlandweit</p>
-                </div>
-              </div>
-              <div className="contact-item">
-                <span className="contact-icon">💳</span>
-                <div>
-                  <p className="contact-label">Preis</p>
-                  <p className="contact-text">Alle Lipsticks: 10€</p>
                 </div>
               </div>
             </div>
@@ -63,7 +48,6 @@ const Footer = () => {
                 rel="noopener noreferrer"
                 className="social-link"
               >
-                <span className="social-icon">📘</span>
                 <span>Facebook</span>
               </a>
               <a 
@@ -72,7 +56,6 @@ const Footer = () => {
                 rel="noopener noreferrer"
                 className="social-link"
               >
-                <span className="social-icon">🎵</span>
                 <span>TikTok</span>
               </a>
             </div>

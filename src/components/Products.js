@@ -1,11 +1,16 @@
-import React from 'react';
+import React, { useState, useRef } from 'react';
 import './Products.css';
 
 const Products = () => {
+  const [selectedProduct, setSelectedProduct] = useState(null);
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [zoomLevel, setZoomLevel] = useState(1);
+  const modalImageRef = useRef(null);
+
   const products = [
     {
       id: 1,
-      name: "Bubble Trouble #21",
+      name: "Bubble Trouble",
       description: "Frech, laut, knallig – Neonpink zum Verlieben.",
       tagline: "Wer leise sein will, nimmt 'ne andere Farbe.",
       price: "10€",
@@ -13,7 +18,7 @@ const Products = () => {
     },
     {
       id: 2,
-      name: "Burnt Coral #12",
+      name: "Burnt Coral",
       description: "Ein satter Korallton, der Wärme und Frische verbindet",
       tagline: "Sunset auf deinen Lippen",
       price: "10€",
@@ -21,7 +26,7 @@ const Products = () => {
     },
     {
       id: 3,
-      name: "Spicy Flame #18",
+      name: "Spicy Flame",
       description: "Knallrot mit Power, für mutige Moves und große Auftritte",
       tagline: "Wenn dein Lippenstift zuerst den Raum betritt",
       price: "10€",
@@ -29,7 +34,7 @@ const Products = () => {
     },
     {
       id: 4,
-      name: "Crimson Queen #19",
+      name: "Crimson Queen",
       description: "Rot mit Statement-Vibes",
       tagline: "Bold lips, bold energy",
       price: "10€",
@@ -37,7 +42,7 @@ const Products = () => {
     },
     {
       id: 5,
-      name: "Fire Clay #8",
+      name: "Fire Clay",
       description: "einzigartig & edgy",
       tagline: "Feuer trifft Eleganz",
       price: "10€",
@@ -45,7 +50,7 @@ const Products = () => {
     },
     {
       id: 6,
-      name: "Nude Vibe #6",
+      name: "Nude Vibe",
       description: "Der perfekte Everyday-Look, soft, cremig, schlicht.",
       tagline: "Dezent, aber nie zu übersehen.",
       price: "10€",
@@ -53,7 +58,7 @@ const Products = () => {
     },
     {
       id: 7,
-      name: "Soft Cappuccino #2",
+      name: "Soft Cappuccino",
       description: "Ein warmes Nude mit leichtem Braunstich – classy & cozy.",
       tagline: "Für die Tage, an denen weniger mehr ist",
       price: "10€",
@@ -61,7 +66,7 @@ const Products = () => {
     },
     {
       id: 8,
-      name: "Velvet Mocha #3",
+      name: "Velvet Mocha",
       description: "Ein dunkler, weicher Braunton – edel, smooth, elegant",
       tagline: "So soft wie Samt, so bold wie Kaffee.",
       price: "10€",
@@ -69,10 +74,33 @@ const Products = () => {
     }
   ];
 
+  const handleProductClick = (product) => {
+    setSelectedProduct(product);
+    setIsModalOpen(true);
+    setZoomLevel(1); // Reset zoom when opening modal
+  };
+
   const handleWhatsAppOrder = (product) => {
     const message = `Hallo! Ich interessiere mich für ${product.name} (${product.price}). Können Sie mir mehr Informationen geben?`;
     const whatsappUrl = `https://wa.me/491793799608?text=${encodeURIComponent(message)}`;
     window.open(whatsappUrl, '_blank');
+  };
+
+  const closeModal = () => {
+    setIsModalOpen(false);
+    setSelectedProduct(null);
+    setZoomLevel(1); // Reset zoom when closing modal
+  };
+
+  const handleWheel = (e) => {
+    e.preventDefault();
+    const delta = e.deltaY > 0 ? -0.1 : 0.1;
+    const newZoom = Math.max(0.5, Math.min(3, zoomLevel + delta));
+    setZoomLevel(newZoom);
+  };
+
+  const resetZoom = () => {
+    setZoomLevel(1);
   };
 
   return (
@@ -91,14 +119,11 @@ const Products = () => {
               className="product-card hover-lift fade-in-up"
               style={{ animationDelay: `${index * 0.1}s` }}
             >
-              <div className="product-image">
+              <div className="product-image" onClick={() => handleProductClick(product)}>
                 <img src={product.image} alt={product.name} />
                 <div className="product-overlay">
-                  <button 
-                    className="btn btn-primary order-btn"
-                    onClick={() => handleWhatsAppOrder(product)}
-                  >
-                    Jetzt bestellen
+                  <button className="btn btn-primary order-btn">
+                    Produkt ansehen
                   </button>
                 </div>
               </div>
@@ -128,6 +153,56 @@ const Products = () => {
           </a>
         </div>
       </div>
+
+      {/* Product Modal */}
+      {isModalOpen && selectedProduct && (
+        <div className="modal-overlay" onClick={closeModal}>
+          <div className="modal-content" onClick={(e) => e.stopPropagation()}>
+            <button className="modal-close" onClick={closeModal}>×</button>
+            
+            <div className="modal-header">
+              <div className="modal-logo">
+                <h3 className="logo-text">
+                  <span className="logo-bele">BELE</span>
+                  <span className="logo-vue">VUE</span>
+                </h3>
+                <p className="logo-tagline">Premium Lipsticks</p>
+              </div>
+            </div>
+
+            <div className="modal-body">
+              <div className="modal-image-container" onWheel={handleWheel}>
+                <img 
+                  ref={modalImageRef}
+                  src={selectedProduct.image} 
+                  alt={selectedProduct.name} 
+                  className="modal-image"
+                  style={{ transform: `scale(${zoomLevel})` }}
+                />
+                {zoomLevel !== 1 && (
+                  <button className="zoom-reset-btn" onClick={resetZoom}>
+                    Reset Zoom
+                  </button>
+                )}
+              </div>
+              
+              <div className="modal-product-info">
+                <h2 className="modal-product-name">{selectedProduct.name}</h2>
+                <p className="modal-product-description">{selectedProduct.description}</p>
+                <p className="modal-product-tagline">{selectedProduct.tagline}</p>
+                <div className="modal-product-price">{selectedProduct.price}</div>
+                
+                <button 
+                  className="btn btn-primary modal-order-btn"
+                  onClick={() => handleWhatsAppOrder(selectedProduct)}
+                >
+                  Jetzt bestellen
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
     </section>
   );
 };

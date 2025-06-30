@@ -1,6 +1,6 @@
 .footer {
-  background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
-  color: white;
+  background: linear-gradient(135deg, #f8f9fa 0%, #f1f3f4 100%);
+  color: #333;
   padding: 60px 0 30px;
 }
 
@@ -14,7 +14,7 @@
 .footer-section h4 {
   font-size: 1.3rem;
   margin-bottom: 20px;
-  color: #ecf0f1;
+  color: #333;
   font-family: 'Playfair Display', serif;
 }
 
@@ -26,11 +26,11 @@
 }
 
 .footer-logo .logo-bele {
-  color: #ecf0f1;
+  color: #333;
 }
 
 .footer-logo .logo-vue {
-  background: linear-gradient(135deg, #ff6b6b, #ee5a24);
+  background: linear-gradient(135deg, #e91e63, #c2185b);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -38,7 +38,7 @@
 
 .footer-logo .logo-tagline {
   font-size: 0.8rem;
-  color: #bdc3c7;
+  color: #666;
   margin: 0;
   font-weight: 300;
   letter-spacing: 1px;
@@ -46,7 +46,7 @@
 }
 
 .footer-description {
-  color: #bdc3c7;
+  color: #666;
   line-height: 1.6;
   margin-top: 20px;
 }
@@ -60,17 +60,11 @@
 .contact-item {
   display: flex;
   align-items: flex-start;
-  gap: 15px;
-}
-
-.contact-icon {
-  font-size: 1.2rem;
-  margin-top: 2px;
 }
 
 .contact-label {
   font-weight: 600;
-  color: #ecf0f1;
+  color: #333;
   margin: 0 0 5px 0;
   font-size: 0.9rem;
   text-transform: uppercase;
@@ -78,20 +72,14 @@
 }
 
 .contact-link {
-  color: #ff6b6b;
+  color: #e91e63;
   text-decoration: none;
   font-weight: 500;
   transition: color 0.3s ease;
 }
 
 .contact-link:hover {
-  color: #ee5a24;
-}
-
-.contact-text {
-  color: #bdc3c7;
-  margin: 0;
-  font-size: 0.95rem;
+  color: #c2185b;
 }
 
 .social-links {
@@ -104,23 +92,20 @@
 .social-link {
   display: flex;
   align-items: center;
-  gap: 10px;
-  color: #bdc3c7;
+  color: #666;
   text-decoration: none;
-  padding: 10px 0;
+  padding: 12px 15px;
   transition: all 0.3s ease;
   border-radius: 8px;
-  padding-left: 10px;
+  font-weight: 500;
+  border: 1px solid transparent;
 }
 
 .social-link:hover {
-  color: #ff6b6b;
-  background: rgba(255, 255, 255, 0.1);
+  color: #e91e63;
+  background: rgba(233, 30, 99, 0.1);
   transform: translateX(5px);
-}
-
-.social-icon {
-  font-size: 1.2rem;
+  border-color: rgba(233, 30, 99, 0.2);
 }
 
 .footer-cta {
@@ -132,7 +117,7 @@
   padding: 15px;
   font-size: 16px;
   border-radius: 30px;
-  background: linear-gradient(135deg, #ff6b6b, #ee5a24);
+  background: linear-gradient(135deg, #e91e63, #c2185b);
   color: white;
   text-decoration: none;
   display: inline-block;
@@ -144,18 +129,18 @@
 }
 
 .footer-cta .btn:hover {
-  background: linear-gradient(135deg, #ee5a24, #ff6b6b);
+  background: linear-gradient(135deg, #c2185b, #e91e63);
   transform: translateY(-2px);
-  box-shadow: 0 8px 25px rgba(238, 90, 36, 0.3);
+  box-shadow: 0 8px 25px rgba(233, 30, 99, 0.3);
   color: white;
   text-decoration: none;
 }
 
 .footer-bottom {
-  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
   padding-top: 30px;
   text-align: center;
-  color: #95a5a6;
+  color: #666;
   font-size: 0.9rem;
 }
 

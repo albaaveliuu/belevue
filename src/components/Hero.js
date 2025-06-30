@@ -29,17 +29,14 @@ const Hero = () => {
           
           <div className="hero-features">
             <div className="feature">
-              <div className="feature-icon">✨</div>
               <h3>Premium Qualität</h3>
               <p>Hochwertige Formeln für langanhaltende Farbintensität</p>
             </div>
             <div className="feature">
-              <div className="feature-icon">🎨</div>
               <h3>Exklusive Farben</h3>
               <p>Einzigartige Nuancen für jeden Stil und jede Stimmung</p>
             </div>
             <div className="feature">
-              <div className="feature-icon">💄</div>
               <h3>Made in Germany</h3>
               <p>Handverlesene Qualität aus deutschen Ateliers</p>
             </div>
